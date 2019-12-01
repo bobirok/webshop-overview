@@ -1,0 +1,59 @@
+<template>
+<nav>
+  <div class="navigation-main-div nav-wrapper">
+    <a class="white-text logo left">Logo</a>
+    <ul class="navigator right">
+      <li><router-link to="/">Home</router-link></li>
+      <li><router-link to="/shop">Products</router-link></li>
+      <li>Contact</li>
+      <li v-if="!isLoggedIn"><router-link to="/login"><i class="material-icons">account_circle</i></router-link></li>
+      <li v-if="isLoggedIn"><router-link to="/me"><i class="material-icons">account_circle</i></router-link></li>
+    </ul>
+  </div>
+</nav>
+</template>
+
+<script>
+export default {
+  name: 'NavBar',
+  data() {
+    return {
+      isLoggedIn: false
+    }
+  },
+  mounted() {
+    if(localStorage.getItem('token')) {
+      this.isLoggedIn = true;
+    } else {
+      this.isLoggedIn = false;
+    }
+  }
+}
+</script>
+
+<style>
+.navigation-main-div {
+  background: #3c70a4;
+}
+
+nav {
+  width: 100%;
+}
+
+.navigator {
+  font-size: 18px;
+}
+
+nav div .navigator li {
+  padding-right: 10px;
+}
+
+nav div .navigator li .router-link-exact-active {
+  text-decoration: underline;
+}
+
+.logo {
+  padding-left: 10px;
+  font-size: 32px;
+}
+</style>
