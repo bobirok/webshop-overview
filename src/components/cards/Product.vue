@@ -5,7 +5,7 @@
       <div class="teal lighten-4 card col s12 m12 l12">
         <div class="card-image">
           <img v-bind:src="img">
-          <a class="card-button btn-large btn-floating pulse halfway-fab waves-effect waves-light teal lighten-1"><i class="material-icons">shopping_cart</i></a>
+          <button @click.prevent="addToCart" class="card-button btn-large btn-floating pulse halfway-fab waves-effect waves-light teal lighten-1"><i class="material-icons">shopping_cart</i></button>
         </div>
         <div class="product-info card-content column">
           <span class="card-title black-text">{{name}}</span>
@@ -19,16 +19,33 @@
 </template>
 
 <script>
+const axios = require('axios');
+
 export default {
     name: 'Product',
-    props: ['img', 'name', 'price', 'quantity'],
+    props: ['id', 'img', 'name', 'price', 'quantity'],
     data() {
         return {
-            namee: "Test name",
-            pricee: 10,
-            quantityy: 10
         }
-    }    
+    },
+    methods: {
+      addToCart() {
+        let auth = 'Bearer ' + localStorage.getItem('token');
+        axios.post('http://localhost:3000/cart/' + this.id, {},
+        { headers: { 'Authorization': auth}})
+        .then(() => {
+          let message = 'The product has been added!';
+          let title = 'Successfully added';
+          let type = 'success'
+          this.$alert(message, title, type, {
+            timer: 2000
+          })
+        })
+      }
+    },
+    mounted() {
+
+    }
 }
 </script>
 

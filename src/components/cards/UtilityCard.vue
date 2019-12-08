@@ -12,7 +12,7 @@
 
 <script>
 export default {
-    name: 'Card',
+    name: 'UtilityCard',
     props: [
         'icon',
         'header',

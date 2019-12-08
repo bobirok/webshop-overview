@@ -7,10 +7,13 @@
             <input type="text" v-model="lastName">
             <input type="text" v-model="age">
         </div>
+        <ShoppingCart class="shopping-cart"/>
     </div>
 </template>
 
 <script>
+import ShoppingCart from '../components/ShoppingCart'
+
 export default {
     name: 'Account',
     data() {
@@ -20,6 +23,9 @@ export default {
             lastName: null,
             age: null
         }
+    },
+    components: {
+        ShoppingCart
     },
     mounted() {
         let user = JSON.parse(localStorage.getItem('user'));
@@ -38,6 +44,6 @@ export default {
 <style>
 .profile-overview {
     width: 35%;
-    height: 100vh;
+    height: 45vh;
 }
 </style>

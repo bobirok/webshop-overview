@@ -1,20 +1,20 @@
 <template>
     <div class="utilities-div wrapper-div">
         <div class="cards-collection">
-            <Card v-bind:description=this.cardOne.description v-bind:icon=this.cardOne.icon v-bind:header=this.cardOne.header />
-            <Card v-bind:description=this.cardTwo.description v-bind:icon=this.cardTwo.icon v-bind:header=this.cardTwo.header />
-            <Card v-bind:description=this.cardThree.description v-bind:icon=this.cardThree.icon v-bind:header=this.cardThree.header />
+            <UtilityCard v-bind:description=this.cardOne.description v-bind:icon=this.cardOne.icon v-bind:header=this.cardOne.header />
+            <UtilityCard v-bind:description=this.cardTwo.description v-bind:icon=this.cardTwo.icon v-bind:header=this.cardTwo.header />
+            <UtilityCard v-bind:description=this.cardThree.description v-bind:icon=this.cardThree.icon v-bind:header=this.cardThree.header />
         </div>
     </div>
 </template>
 
 <script>
-import Card from './cards/Card.vue'
+import UtilityCard from './cards/UtilityCard'
 
 export default {
     name: 'Utilities',
     components: { 
-        Card
+        UtilityCard
     },
     data() {
         return {

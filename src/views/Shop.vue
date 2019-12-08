@@ -3,6 +3,7 @@
         <div class="main s12 m12 l12">
             <div class="row products s8 m8 l8">
                 <div class="col s12 m6 l3" v-for="(product, index) in products" :key="index"><Product 
+                v-bind:id="product.id"
                 v-bind:name="product.name" 
                 v-bind:price="product.price"
                 v-bind:quantity="product.quantity"
@@ -30,7 +31,8 @@ export default {
     },
     methods: {
         getProducts() {
-            axios.get('http://localhost:3000/products')
+            let auth = 'Bearer ' + localStorage.getItem('token');
+            axios.get('http://localhost:3000/products', {headers: { 'Authorization': auth}})
             .then((res) => {
                 this.products = res.data;
             })

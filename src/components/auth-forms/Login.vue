@@ -32,7 +32,9 @@ export default {
         },
         getUser(username) {
             return new Promise((resolve) => {
-                axios.get('http://localhost:3000/me?username=' + username)
+                let authToken = 'Bearer ' + localStorage.getItem('token');
+                axios.get('http://localhost:3000/me?username=' + username, { headers: { 'Authorization': authToken}})
+                
                 .then(res => {
                     resolve(res.data)
                 })
