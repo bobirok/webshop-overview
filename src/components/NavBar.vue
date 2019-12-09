@@ -1,7 +1,7 @@
 <template>
 <nav>
   <div class="navigation-main-div nav-wrapper">
-    <a class="white-text logo left">Logo</a>
+    <a class="white-text logo left"><img src="../assets/weblogo.png" id="logo"></a>
     <ul class="navigator right">
       <li><router-link to="/">Home</router-link></li>
       <li><router-link to="/shop">Products</router-link></li>
@@ -32,6 +32,15 @@ export default {
 </script>
 
 <style>
+#logo {
+  width: 50px;
+  height: 75px;
+  position: fixed;
+  top: 0;
+  left: 15px;
+  z-index: 1;
+}
+
 .navigation-main-div {
   background: #3c70a4;
 }

@@ -3,8 +3,9 @@
         <h1>My shopping cart</h1>
         <div class="wrapper-div items">
             <div v-for="(item, index) in cartProducts" :key="index" class="wrapper-div">
-                <CartItem 
-                    v-bind:img=item.img
+                <CartItem @itemRemoved = 'getCart'
+                    v-bind:id=item.id
+                    v-bind:img=item.image
                     v-bind:name=item.name
                     v-bind:price=item.price
                 />
@@ -27,15 +28,22 @@ export default {
     components: {
         CartItem
     },
-    mounted() {
-        let auth = 'Bearer ' + localStorage.getItem('token');
+    methods: {
+        getCart() {
+            let auth = 'Bearer ' + localStorage.getItem('token');
     
-        axios.get('http://localhost:3000/cart', { headers: { 'Authorization': auth}})
-        .then((res) => {
-            console.log(res.data)
-            this.cartProducts = res.data;
-        })
-        .catch(console.log)
+            axios.get('http://localhost:3000/cart', { headers: { 'Authorization': auth}})
+            .then((res) => {
+                this.cartProducts = res.data;
+            })
+            .catch(console.log)
+        }
+    },
+    mounted() {
+        this.getCart();
+    },
+    updated() {
+        console.log(this.cartProducts[0].image)
     }
 }
 </script>
