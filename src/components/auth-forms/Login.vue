@@ -24,12 +24,17 @@ export default {
             .then(res => {
                 let token = res.data;
                 localStorage.setItem('token', token);
+
                 this.getUser(this.username).then(user => {
                     localStorage.setItem('user', JSON.stringify(user))
+
+                    this.$emit('loggedin')
+
                     this.$router.push("me")
                 })
             })
         },
+
         getUser(username) {
             return new Promise((resolve) => {
                 let authToken = 'Bearer ' + localStorage.getItem('token');

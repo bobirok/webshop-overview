@@ -8,17 +8,36 @@
       <li>Contact</li>
       <li v-if="!isLoggedIn"><router-link to="/login"><i class="material-icons">account_circle</i></router-link></li>
       <li v-if="isLoggedIn"><router-link to="/me"><i class="material-icons">account_circle</i></router-link></li>
+      <li class="logOut" v-if="isLoggedIn" @click="logOut"><i class="material-icons">exit_to_app</i></li>
     </ul>
   </div>
 </nav>
 </template>
 
 <script>
+import * as axios from 'axios';
+
 export default {
   name: 'NavBar',
   data() {
     return {
       isLoggedIn: false
+    }
+  },
+  methods: {
+    logOut() {
+      let auth = 'Bearer ' + localStorage.getItem('token');
+      axios.post('http://localhost:3000/logout', {}, { headers: { 'Authorization': auth }})
+      .then(() => {
+        this.isLoggedIn = false;
+        this.unsetItemsInStorage();
+        this.$router.push('/')
+      })
+    },
+
+    unsetItemsInStorage() {
+      localStorage.removeItem('token');
+      localStorage.removeItem('user');
     }
   },
   mounted() {
@@ -64,5 +83,9 @@ nav div .navigator li .router-link-exact-active {
 .logo {
   padding-left: 10px;
   font-size: 32px;
+}
+
+.logOut {
+  cursor: pointer;
 }
 </style>

@@ -41,6 +41,14 @@ export default {
             timer: 2000
           })
         })
+        .catch(() => {
+          let message = 'You need to be logged in in order to add to your cart!';
+          let title = 'Please log in first';
+          let type = 'warning'
+          this.$alert(message, title, type, {
+            timer: 3000
+          })
+        })
       }
     },
     mounted() {

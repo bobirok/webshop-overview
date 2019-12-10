@@ -34,16 +34,13 @@ export default {
     
             axios.get('http://localhost:3000/cart', { headers: { 'Authorization': auth}})
             .then((res) => {
-                this.cartProducts = res.data;
+                this.cartProducts = res.data.products;
             })
             .catch(console.log)
         }
     },
     mounted() {
         this.getCart();
-    },
-    updated() {
-        console.log(this.cartProducts[0].image)
     }
 }
 </script>
