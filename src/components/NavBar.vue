@@ -31,6 +31,8 @@ export default {
       .then(() => {
         this.isLoggedIn = false;
         this.unsetItemsInStorage();
+        this.$store.logged = false;
+        console.log(this.$store.logged)
         this.$router.push('/')
       })
     },
@@ -42,10 +44,11 @@ export default {
   },
   mounted() {
     if(localStorage.getItem('token')) {
-      this.isLoggedIn = true;
+      this.$store.logged = true;
     } else {
-      this.isLoggedIn = false;
+      this.$store.logged = false;
     }
+    this.isLoggedIn = this.$store.logged;
   }
 }
 </script>

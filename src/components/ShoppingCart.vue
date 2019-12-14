@@ -11,6 +11,7 @@
                 />
             </div>
         </div>
+            <p class="priceParagraph wrapper-div">Total to pay: ${{total}}</p>
     </div>
 </template>
 
@@ -22,7 +23,8 @@ export default {
     name: 'ShoppingCart',
     data() {
         return {
-            cartProducts: undefined
+            cartProducts: undefined,
+            total: undefined
         }
     },
     components: {
@@ -35,6 +37,7 @@ export default {
             axios.get('http://localhost:3000/cart', { headers: { 'Authorization': auth}})
             .then((res) => {
                 this.cartProducts = res.data.products;
+                this.total = res.data.total
             })
             .catch(console.log)
         }
@@ -47,7 +50,10 @@ export default {
 
 <style>
 .cart .items {
-    border: 1px solid black;
     margin-bottom: 10px;
+}
+
+.priceParagraph {
+    text-align: right;
 }
 </style>

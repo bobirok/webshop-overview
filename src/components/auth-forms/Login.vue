@@ -28,9 +28,10 @@ export default {
                 this.getUser(this.username).then(user => {
                     localStorage.setItem('user', JSON.stringify(user))
 
-                    this.$emit('loggedin')
+                    this.$store.logged = true;
 
-                    this.$router.push("me")
+                    this.$router.push("/me")
+                    this.$router.go('')
                 })
             })
         },

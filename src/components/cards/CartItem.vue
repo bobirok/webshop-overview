@@ -2,7 +2,7 @@
     <div class="wrapper-div row item">
         <img class="productImage col s3 m3 l3" v-bind:src="img" alt="">
         <p class="col l3 s3 m3">{{ name }}</p>
-        <p class="col l3 s3 m3"><b>{{ price }}</b></p>
+        <p class="col l3 s3 m3"><b>${{ price }}</b></p>
         <div class="buttons row l3 s3 m3">
             <button @click="removeFromCart" class="btn red white-text">Remove</button>
             <button class="btn teal white-text">Buy</button>

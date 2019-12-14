@@ -33,7 +33,8 @@ export default {
             this.username = user.username;
             this.firstName = user.firstName;
             this.lastName = user.lastName;
-            this.age = user.age
+            this.age = user.age;
+            this.$store.logged = true;
         } else {
             this.$router.push("login")
         }

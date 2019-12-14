@@ -30,6 +30,8 @@ export default {
             .then(res => {
                 let token = res.data;
                 localStorage.setItem('token', token);
+                this.$store.logged = true;
+                this.$router.push('me')
             })
         }
     }
