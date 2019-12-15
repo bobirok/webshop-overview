@@ -38,10 +38,12 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
+@import '../styles/variables';
+
 .utilities-div {
     padding: 15px;
-    background: #64b2cd;
+    background: $mainComponentBackground;
 }
 
 .cards-collection {

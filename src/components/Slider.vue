@@ -2,7 +2,7 @@
     <div class="wrapper-div">
         <div class="slider-div s12">
             <button @click="prev()" class="btn previous"><i class="material-icons">navigate_before</i></button>
-            <img id="sliderImage" src="../assets/logo.png" alt="">
+            <img id="sliderImage" src="../assets/2.jpg" alt="">
             <button @click="next()" class="btn next"><i class="material-icons">navigate_next</i></button>
         </div>
     </div>
@@ -58,7 +58,7 @@ export default {
     flex-direction: row;
     justify-content: space-around;
     background: #d9eeec;
-    height: 100vh;
+    height: 95vh;
 }
 
 #sliderImage {

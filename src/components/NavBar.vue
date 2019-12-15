@@ -53,7 +53,9 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
+@import '../styles/variables';
+
 #logo {
   width: 50px;
   height: 75px;
@@ -64,7 +66,7 @@ export default {
 }
 
 .navigation-main-div {
-  background: #3c70a4;
+  background: $blueColor;
 }
 
 nav {

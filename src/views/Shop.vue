@@ -44,10 +44,12 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
+@import '../styles/variables';
+
 .shop {
     border: 1px solid black;
-    background: #64b2cd;
+    background: $mainComponentBackground;
 }
 
 .shop > .main > .products {

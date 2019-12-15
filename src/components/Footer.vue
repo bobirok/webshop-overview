@@ -33,9 +33,20 @@ export default {
 }
 </script>
 
-<style>
+<style lang='scss'>
+@import '../styles/variables';
+
 .page-footer {
-    background: #3c70a4;
+    background: $blueColor;
+    p {
+        vertical-align: middle;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        i {
+            margin-right: 5px;
+        }
+    }
 }
 
 .footer-description {

@@ -11,7 +11,7 @@
                 />
             </div>
         </div>
-            <p class="priceParagraph wrapper-div">Total to pay: ${{total}}</p>
+            <p v-if="cartProducts.length" class="priceParagraph container">Total to pay: ${{total}}</p>
     </div>
 </template>
 
@@ -49,11 +49,17 @@ export default {
 </script>
 
 <style>
+.cart {
+    border: 1px solid black;
+    margin-bottom: 10px;
+}
+
 .cart .items {
     margin-bottom: 10px;
 }
 
 .priceParagraph {
     text-align: right;
+    font-size: 18px;
 }
 </style>

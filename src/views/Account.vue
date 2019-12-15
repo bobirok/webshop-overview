@@ -2,10 +2,22 @@
     <div class="account-main wrapper-div">
         <h1>Account page</h1>
         <div class="profile-overview container">
-            <input type="text" v-model="username">
-            <input type="text" v-model="firstName">
-            <input type="text" v-model="lastName">
-            <input type="text" v-model="age">
+            <div class="wrapper-div row description">
+                <label class="white-text col l4 m4 s4">Username: </label>          
+                <input class="white-text col l8 m8 s8" type="text" v-model="username">
+            </div>
+            <div class="wrapper-div row description">            
+                <label class="white-text col l4 m4 s4">First name: </label>
+                <input class="white-text col l8 m8 s8" type="text" v-model="firstName">
+            </div>
+            <div class="wrapper-div row description">
+                <label class="white-text col l4 m4 s4">Last name: </label>
+                <input class="white-text col l8 m8 s8" type="text" v-model="lastName">
+            </div>
+            <div class="wrapper-div row description">            
+                <label class="white-text col l4 m4 s4">Age: </label>
+                <input class="white-text col l8 m8 s8" type="text" v-model="age">
+            </div>
         </div>
         <ShoppingCart class="shopping-cart"/>
     </div>
@@ -42,9 +54,32 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
+@import '../styles/variables';
+
+.account-main {
+    background-color: $mainComponentBackground;
+    border: 1px solid black;
+    color: white;
+
+    .description {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+
+        label {
+            font-size: 20px;
+        }
+    }
+}
+
+input {
+    border-bottom: 1px solid white !important;
+}
+
 .profile-overview {
     width: 35%;
-    height: 45vh;
+    height: 40vh;
 }
 </style>
