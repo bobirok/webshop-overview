@@ -8,7 +8,7 @@
                 v-bind:price="product.price"
                 v-bind:quantity="product.quantity"
                 v-bind:img="product.image"
-                />
+                @bought='getProducts' />
                 </div>
             </div>
         </div>
@@ -31,6 +31,7 @@ export default {
     },
     methods: {
         getProducts() {
+            this.products = [];
             let auth = 'Bearer ' + localStorage.getItem('token');
             axios.get('http://localhost:3000/products', {headers: { 'Authorization': auth}})
             .then((res) => {

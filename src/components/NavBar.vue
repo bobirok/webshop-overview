@@ -32,7 +32,6 @@ export default {
         this.isLoggedIn = false;
         this.unsetItemsInStorage();
         this.$store.logged = false;
-        console.log(this.$store.logged)
         this.$router.push('/')
       })
     },

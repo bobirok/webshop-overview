@@ -34,21 +34,29 @@ export default {
         axios.post('http://localhost:3000/cart/' + this.id, {},
         { headers: { 'Authorization': auth}})
         .then(() => {
+          this.alertAdded();
+        })
+        .catch(() => {
+          this.alertError();
+        })
+      },
+      alertAdded() {
           let message = 'The product has been added!';
           let title = 'Successfully added';
           let type = 'success'
           this.$alert(message, title, type, {
             timer: 2000
+          }).then(() => {
+              this.$emit('bought')
           })
-        })
-        .catch(() => {
+      },
+      alertError() {
           let message = 'You need to be logged in in order to add to your cart!';
           let title = 'Please log in first';
           let type = 'warning'
           this.$alert(message, title, type, {
             timer: 3000
           })
-        })
       }
     },
     mounted() {
