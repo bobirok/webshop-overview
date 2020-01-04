@@ -4,19 +4,19 @@
         <div class="profile-overview container">
             <div class="wrapper-div row description">
                 <label class="white-text col l4 m4 s4">Username: </label>          
-                <input class="white-text col l8 m8 s8" type="text" v-model="username">
+                <input disabled class="white-text col l8 m8 s8" type="text" v-model="username">
             </div>
             <div class="wrapper-div row description">            
                 <label class="white-text col l4 m4 s4">First name: </label>
-                <input class="white-text col l8 m8 s8" type="text" v-model="firstName">
+                <input disabled class="white-text col l8 m8 s8" type="text" v-model="firstName">
             </div>
             <div class="wrapper-div row description">
                 <label class="white-text col l4 m4 s4">Last name: </label>
-                <input class="white-text col l8 m8 s8" type="text" v-model="lastName">
+                <input disabled class="white-text col l8 m8 s8" type="text" v-model="lastName">
             </div>
             <div class="wrapper-div row description">            
                 <label class="white-text col l4 m4 s4">Age: </label>
-                <input class="white-text col l8 m8 s8" type="text" v-model="age">
+                <input disabled class="white-text col l8 m8 s8" type="text" v-model="age">
             </div>
         </div>
         <ShoppingCart class="shopping-cart"/>

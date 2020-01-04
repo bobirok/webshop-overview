@@ -33,11 +33,12 @@ export default {
         let auth = 'Bearer ' + localStorage.getItem('token');
         axios.post('http://localhost:3000/cart/' + this.id, {},
         { headers: { 'Authorization': auth}})
-        .then(() => {
-          this.alertAdded();
+        .then((res) => {
+          this.alertAdded(res);
         })
-        .catch(() => {
-          this.alertError();
+        .catch((error) => {
+          console.log(error.response.data)
+          this.alertError(error.response.data);
         })
       },
       alertAdded() {
@@ -50,10 +51,10 @@ export default {
               this.$emit('bought')
           })
       },
-      alertError() {
-          let message = 'You need to be logged in in order to add to your cart!';
-          let title = 'Please log in first';
-          let type = 'warning'
+      alertError(e) {
+          let title = e
+          let message = ''
+          let type = 'error'
           this.$alert(message, title, type, {
             timer: 3000
           })
