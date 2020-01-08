@@ -33,7 +33,7 @@ export default {
         getProducts() {
             this.products = [];
             let auth = 'Bearer ' + localStorage.getItem('token');
-            axios.get('http://localhost:3000/products', {headers: { 'Authorization': auth}})
+            axios.get(`${this.$store.WEBSHOP_API_URL}/products`, {headers: { 'Authorization': auth}})
             .then((res) => {
                 this.products = res.data;
             })

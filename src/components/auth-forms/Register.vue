@@ -26,7 +26,7 @@ export default {
     },
     methods: {
         register() {
-            axios.get('http://localhost:3000/register?firstname=' + this.firstName + '&lastname=' + this.lastName + '&age=' + this.age + '&username=' + this.username + '&password=' + this.password)
+            axios.get(`${this.$store.WEBSHOP_API_URL}/register?firstname=${this.firstName}&lastname=${this.lastName}&age=${this.age}&username=${this.username}&password=${this.password}`)
             .then(res => {
                 let token = res.data;
                 localStorage.setItem('token', token);

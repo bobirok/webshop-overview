@@ -27,7 +27,7 @@ export default {
   methods: {
     logOut() {
       let auth = 'Bearer ' + localStorage.getItem('token');
-      axios.post('http://localhost:3000/logout', {}, { headers: { 'Authorization': auth }})
+      axios.post(`${this.$store.WEBSHOP_API_URL}/logout`, {}, { headers: { 'Authorization': auth }})
       .then(() => {
         this.isLoggedIn = false;
         this.unsetItemsInStorage();

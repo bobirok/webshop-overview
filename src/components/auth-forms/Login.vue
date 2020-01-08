@@ -20,7 +20,7 @@ export default {
     },
     methods: {
         login() {
-            axios.post('http://localhost:3000/login?username=' + this.username + '&password=' + this.password)
+            axios.post(`${this.$store.WEBSHOP_API_URL}/login?username=${this.username}&password=${this.password}`)
             .then(res => {
                 let token = res.data;
                 localStorage.setItem('token', token);
@@ -39,7 +39,7 @@ export default {
         getUser(username) {
             return new Promise((resolve) => {
                 let authToken = 'Bearer ' + localStorage.getItem('token');
-                axios.get('http://localhost:3000/me?username=' + username, { headers: { 'Authorization': authToken}})
+                axios.get(`${this.$store.WEBSHOP_API_URL}/me?username=${this.username}`, { headers: { 'Authorization': authToken}})
                 
                 .then(res => {
                     resolve(res.data)

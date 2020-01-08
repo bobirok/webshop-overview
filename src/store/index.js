@@ -5,7 +5,8 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    logged: undefined
+    logged: undefined,
+    WEBSHOP_API_URL = 'http://localhost:3000'
   },
   mutations: {
   },

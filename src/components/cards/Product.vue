@@ -31,7 +31,7 @@ export default {
     methods: {
       addToCart() {
         let auth = 'Bearer ' + localStorage.getItem('token');
-        axios.post('http://localhost:3000/cart/' + this.id, {},
+        axios.post(`${this.$store.WEBSHOP_API_URL}/cart/${this.id}`, {},
         { headers: { 'Authorization': auth}})
         .then((res) => {
           this.alertAdded(res);

@@ -29,7 +29,7 @@ export default {
     methods: {
         removeFromCart() {
             let auth = 'Bearer ' + localStorage.getItem('token');
-            axios.delete('http://localhost:3000/cart/' + this.$props.id, { headers: { 'Authorization': auth }})
+            axios.delete(`${this.$store.WEBSHOP_API_URL}/cart/${this.$props.id}`, { headers: { 'Authorization': auth }})
             .then((res) => {
                 let title = 'Removed!';
                 let type = 'success'

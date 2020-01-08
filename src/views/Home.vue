@@ -12,7 +12,6 @@
 </template>
 
 <script>
-// @ is an alias to /src
 import Slider from '@/components/Slider.vue'
 import Utilities from '@/components/Utilities.vue'
 

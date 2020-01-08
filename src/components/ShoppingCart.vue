@@ -37,7 +37,7 @@ export default {
         getCart() {
             let auth = 'Bearer ' + localStorage.getItem('token');
     
-            axios.get('http://localhost:3000/cart', { headers: { 'Authorization': auth}})
+            axios.get(`${this.$store.WEBSHOP_API_URL}/cart`, { headers: { 'Authorization': auth}})
             .then((res) => {
                 this.cartProducts = res.data.products;
                 this.total = res.data.total
